@@ -1,0 +1,126 @@
+body {
+  padding: 20px;
+}
+
+#searchButton {
+  background-color: rgb(255, 194, 203);
+  box-shadow: none;
+  border: 1px solid rgb(255, 194, 203);
+  display: inline;
+  color: white;
+}
+
+#searchButton:hover {
+  box-shadow: 1px 1px 16px #dcb3b9;
+}
+
+.sun-emoji {
+  font-size: 100px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.row {
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.searchbar {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(167, 153, 155, 0.504);
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  background-color: rgb(255, 194, 203);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.smallemoji {
+  font-size: 48px;
+}
+
+.weathercard {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 200;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.smalltext {
+  font-size: 12px;
+}
+
+h2 {
+  font-weight: 200;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 900;
+}
+.btn-outline-secondary {
+  color: #dcb3b9;
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-outline-secondary:hover {
+  color: #836166;
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
+a {
+  font-size: 12px;
+  margin: 5px;
+  text-align: center;
+}
+
+li {
+  list-style: none;
+  font-weight: 200;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.current-location-button {
+  margin: auto;
+  display: block;
+  padding: 10px;
+}
