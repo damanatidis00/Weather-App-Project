@@ -50,7 +50,7 @@ function showCurrentWeather(response) {
   let currentTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(currentTemperature) + "℉";
   let windElement = document.querySelector("#wind");
-  windSpeed = response.data.wind.speed;
+  let windSpeed = response.data.wind.speed;
   windElement.innerHTML = "Wind " + Math.round(windSpeed) + "mph";
   let humidityElement = document.querySelector("#humidity");
   let currentHumidity = response.data.main.humidity;
