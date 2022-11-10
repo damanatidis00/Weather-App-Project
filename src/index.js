@@ -46,6 +46,7 @@ if (currentMinutes < 10) {
 /*Search City Weather Code / API Code */
 
 function showCurrentWeather(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let currentTemperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(currentTemperature) + "℉";
@@ -61,6 +62,9 @@ function showCurrentWeather(response) {
   let city = document.querySelector("#city");
   let searchedCity = response.data.city;
   city.innerHTML = searchedCity;
+  let weatherIcon = document.querySelector("#weather-icon");
+  let iconURL = response.data.condition.icon_url;
+  weatherIcon.innerHTML = `<img src=${iconURL}>`;
 }
 
 function searchCity(event) {
@@ -84,7 +88,6 @@ function getCoord(position) {
 }
 
 function openNavigator(event) {
-  event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCoord);
 }
 

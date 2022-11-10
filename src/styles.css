@@ -112,6 +112,7 @@ a {
 li {
   list-style: none;
   font-weight: 200;
+  text-transform: capitalize;
 }
 
 ul {
