@@ -47,19 +47,19 @@ if (currentMinutes < 10) {
 
 function showCurrentWeather(response) {
   let temperatureElement = document.querySelector("#temperature");
-  let currentTemperature = response.data.main.temp;
+  let currentTemperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(currentTemperature) + "℉";
   let windElement = document.querySelector("#wind");
   let windSpeed = response.data.wind.speed;
   windElement.innerHTML = "Wind " + Math.round(windSpeed) + "mph";
   let humidityElement = document.querySelector("#humidity");
-  let currentHumidity = response.data.main.humidity;
+  let currentHumidity = response.data.temperature.humidity;
   humidityElement.innerHTML = "Humidity " + currentHumidity;
   let descriptionElement = document.querySelector("#description");
-  let currentDescription = response.data.weather[0].main;
+  let currentDescription = response.data.condition.description;
   descriptionElement.innerHTML = currentDescription;
   let city = document.querySelector("#city");
-  let searchedCity = response.data.name;
+  let searchedCity = response.data.city;
   city.innerHTML = searchedCity;
 }
 
@@ -67,8 +67,8 @@ function searchCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#form1");
 
-  let key = "2718952144ed077c12e7c160fb6fc351";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${key}&units=imperial`;
+  let key = "t3b440bad7o6b9c0b3f432b3e3d4d1d5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInput.value}&key=${key}`;
   axios.get(apiUrl).then(showCurrentWeather);
 }
 
@@ -78,12 +78,13 @@ searchButton.addEventListener("click", searchCity);
 function getCoord(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let key = "2718952144ed077c12e7c160fb6fc351";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`;
+  let key = "t3b440bad7o6b9c0b3f432b3e3d4d1d5";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${key}`;
   axios.get(apiURL).then(showCurrentWeather);
 }
 
-function openNavigator() {
+function openNavigator(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCoord);
 }
 
