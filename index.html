@@ -69,12 +69,18 @@
 
         <div class="col gx-0 justify-content-center">
           <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col">
               <p class="sun-emoji" id="weather-icon">☀️</p>
             </div>
-            <div class="col-6 justify-content-center">
+            <div class="col justify-content-center">
               <h2 id="temp-display" class="justify-content-center">
-                <span class="justify-content-center" id="temperature">68℉</span>
+                <span class="justify-content-center" id="temperature">20</span>
+                <a class="temp-indicator active" href="#" id="celcius-indicator"
+                  >℃</a
+                >
+                <a class="temp-indicator" href="#" id="fahrenheit-indicator"
+                  >℉</a
+                >
               </h2>
             </div>
           </div>
@@ -137,7 +143,8 @@
       </div>
     </div>
 -->
-    <script src="src/index.js"></script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
   </body>
 </html>

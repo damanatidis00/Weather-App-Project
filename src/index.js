@@ -47,9 +47,9 @@ if (currentMinutes < 10) {
 
 function showCurrentWeather(response) {
   console.log(response);
-  let temperatureElement = document.querySelector("#temperature");
-  let currentTemperature = response.data.temperature.current;
-  temperatureElement.innerHTML = Math.round(currentTemperature) + "℉";
+
+  currentTemperature = response.data.temperature.current;
+  temperatureElement.innerHTML = Math.round(currentTemperature);
   let windElement = document.querySelector("#wind");
   let windSpeed = response.data.wind.speed;
   windElement.innerHTML = "Wind " + Math.round(windSpeed) + "mph";
@@ -66,6 +66,8 @@ function showCurrentWeather(response) {
   let iconURL = response.data.condition.icon_url;
   weatherIcon.innerHTML = `<img src=${iconURL}>`;
 }
+let temperatureElement = document.querySelector("#temperature");
+let currentTemperature = null;
 
 function searchCity(event) {
   event.preventDefault();
@@ -94,26 +96,30 @@ function openNavigator(event) {
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", openNavigator);
 
-/* trying to change the temperature to celcius, having a hard time
-seems like I have to turn the string into an integer to get the
-equation to work but I can't figure out how, I keep getting NaN 
-
-let celciusButton = document.querySelector("#celcius-button");
-celciusButton.addEventListener("click", changeToCelcius);
-
 function changeToCelcius(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let celciusTemp = temperatureElement.innerHTML;
-  celciusTemp = Number(celciusTemp);
-  temperatureElement.innerHTML = Math.round((celciusTemp - 32) * 5) / 9;
+  celciusButton.classList.add("active");
+  FahrenheitButton.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(currentTemperature);
 }
 
 function changeToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = "68";
+  celciusButton.classList.remove("active");
+  FahrenheitButton.classList.add("active");
+  temperatureElement.innerHTML = Math.round(currentTemperature * (9 / 5) + 32);
 }
 
-let FahrenheitButton = document.querySelector("f-button");
-FahrenheitButton.addEventListener("click", changeToFahrenheit);*/
+let celciusButton = document.querySelector("#celcius-indicator");
+celciusButton.addEventListener("click", changeToCelcius);
+
+let FahrenheitButton = document.querySelector("#fahrenheit-indicator");
+FahrenheitButton.addEventListener("click", changeToFahrenheit);
+
+function search(city) {
+  let key = "t3b440bad7o6b9c0b3f432b3e3d4d1d5";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}`;
+  axios.get(apiURL).then(showCurrentWeather);
+}
+
+search("Athens");

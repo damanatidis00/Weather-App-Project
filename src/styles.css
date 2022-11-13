@@ -107,6 +107,7 @@ a {
   font-size: 12px;
   margin: 5px;
   text-align: center;
+  color: black;
 }
 
 li {
@@ -124,4 +125,26 @@ ul {
   margin: auto;
   display: block;
   padding: 10px;
+}
+
+.temp-indicator {
+  font-size: 24px;
+  margin: 0;
+  color: black;
+}
+
+.active {
+  color: black;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  text-decoration-color: none;
+  color: black;
 }
