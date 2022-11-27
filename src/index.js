@@ -87,8 +87,7 @@ function showForcast(response) {
       <p class="smalltext"> ${Math.round(
         forecastDay.temperature.maximum
       )}℃ / ${Math.round(forecastDay.temperature.minimum)}℃</p>
-    </div>
-  </div>`;
+    </div>`;
     }
   });
   forecastHTML = forecastHTML + `</div>`;
