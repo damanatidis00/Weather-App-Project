@@ -79,7 +79,7 @@ function showForcast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        ` <div class="col-2" id="col">
+        ` <div class="col-2">
     <div class="weathercard">
     <img src="${forecastDay.condition.icon_url}">
       <p>${formatDay(forecastDay.time)}</p>
@@ -87,6 +87,7 @@ function showForcast(response) {
       <p class="smalltext"> ${Math.round(
         forecastDay.temperature.maximum
       )}℃ / ${Math.round(forecastDay.temperature.minimum)}℃</p>
+    </div>
     </div>`;
     }
   });
