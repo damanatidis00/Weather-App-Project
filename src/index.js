@@ -72,7 +72,6 @@ function formatDay(timestamp) {
 }
 
 function showForcast(response) {
-  console.log(response);
   let forecast = response.data.daily;
   let weatherCard = document.querySelector("#weather-card");
   let forecastHTML = `<div class="row">`;
@@ -99,7 +98,6 @@ function showForcast(response) {
 /*Search City Weather Code / API Code */
 
 function showCurrentWeather(response) {
-  console.log(response);
   let timestamp = response.data.time * 1000;
   formatDate(timestamp);
   currentTemperature = response.data.temperature.current;
